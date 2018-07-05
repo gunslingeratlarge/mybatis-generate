@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.kvmial.mybatisgenerate.service.VoteTotalMapper" >
+  <resultMap id="BaseResultMap" type="cn.kvmial.mybatisgenerate.pojo.VoteTotal" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="inst_id" property="inst_id" jdbcType="VARCHAR" />
+    <result column="proposal" property="proposal" jdbcType="VARCHAR" />
+    <result column="investor_account_id" property="investor_account_id" jdbcType="VARCHAR" />
+    <result column="preference" property="preference" jdbcType="VARCHAR" />
+    <result column="amount" property="amount" jdbcType="INTEGER" />
+    <result column="investor_name" property="investor_name" jdbcType="VARCHAR" />
+    <result column="multiple_card" property="multiple_card" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, inst_id, proposal, investor_account_id, preference, amount, investor_name, multiple_card, 
+    remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from vote_total
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from vote_total
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.kvmial.mybatisgenerate.pojo.VoteTotal" >
+    insert into vote_total (id, inst_id, proposal, 
+      investor_account_id, preference, amount, 
+      investor_name, multiple_card, remark
+      )
+    values (#{id,jdbcType=INTEGER}, #{inst_id,jdbcType=VARCHAR}, #{proposal,jdbcType=VARCHAR}, 
+      #{investor_account_id,jdbcType=VARCHAR}, #{preference,jdbcType=VARCHAR}, #{amount,jdbcType=INTEGER}, 
+      #{investor_name,jdbcType=VARCHAR}, #{multiple_card,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.kvmial.mybatisgenerate.pojo.VoteTotal" >
+    insert into vote_total
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="inst_id != null" >
+        inst_id,
+      </if>
+      <if test="proposal != null" >
+        proposal,
+      </if>
+      <if test="investor_account_id != null" >
+        investor_account_id,
+      </if>
+      <if test="preference != null" >
+        preference,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="investor_name != null" >
+        investor_name,
+      </if>
+      <if test="multiple_card != null" >
+        multiple_card,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="inst_id != null" >
+        #{inst_id,jdbcType=VARCHAR},
+      </if>
+      <if test="proposal != null" >
+        #{proposal,jdbcType=VARCHAR},
+      </if>
+      <if test="investor_account_id != null" >
+        #{investor_account_id,jdbcType=VARCHAR},
+      </if>
+      <if test="preference != null" >
+        #{preference,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=INTEGER},
+      </if>
+      <if test="investor_name != null" >
+        #{investor_name,jdbcType=VARCHAR},
+      </if>
+      <if test="multiple_card != null" >
+        #{multiple_card,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.kvmial.mybatisgenerate.pojo.VoteTotal" >
+    update vote_total
+    <set >
+      <if test="inst_id != null" >
+        inst_id = #{inst_id,jdbcType=VARCHAR},
+      </if>
+      <if test="proposal != null" >
+        proposal = #{proposal,jdbcType=VARCHAR},
+      </if>
+      <if test="investor_account_id != null" >
+        investor_account_id = #{investor_account_id,jdbcType=VARCHAR},
+      </if>
+      <if test="preference != null" >
+        preference = #{preference,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null" >
+        amount = #{amount,jdbcType=INTEGER},
+      </if>
+      <if test="investor_name != null" >
+        investor_name = #{investor_name,jdbcType=VARCHAR},
+      </if>
+      <if test="multiple_card != null" >
+        multiple_card = #{multiple_card,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.kvmial.mybatisgenerate.pojo.VoteTotal" >
+    update vote_total
+    set inst_id = #{inst_id,jdbcType=VARCHAR},
+      proposal = #{proposal,jdbcType=VARCHAR},
+      investor_account_id = #{investor_account_id,jdbcType=VARCHAR},
+      preference = #{preference,jdbcType=VARCHAR},
+      amount = #{amount,jdbcType=INTEGER},
+      investor_name = #{investor_name,jdbcType=VARCHAR},
+      multiple_card = #{multiple_card,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
